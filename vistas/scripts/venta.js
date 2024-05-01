@@ -221,6 +221,7 @@ function agregarDetalle(idarticulo,articulo,stock,precio_venta){
 		if (idarticulo != "") {
 			$(`#btnadd${idarticulo}`).attr('disabled', true);
 			precio_venta = (precio_venta != '') ? precio_venta : 0;
+			console.log(precio_venta);
 			var subtotal=cantidad*precio_venta;
 			var fila='<tr class="filas" id="fila'+cont+'">'+
 				'<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ',' + idarticulo +')">X</button></td>'+
@@ -288,7 +289,6 @@ function modificarSubtotales(val){
 	} 
 	setTimeout(function () { 
 		calcularTotales();
-		console.log('sdf');
 	}, 1000);
 }
 
