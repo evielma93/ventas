@@ -215,13 +215,13 @@ function marcarImpuesto(){
 }
 
 function agregarDetalle(idarticulo,articulo,stock,precio_venta){
-	var cantidad = 1; 
+	var cantidad = 1; console.log(precio_venta);
 	if (stock>0) { 
 		var descuento=0; 
 		if (idarticulo != "") {
 			$(`#btnadd${idarticulo}`).attr('disabled', true);
 			precio_venta = (precio_venta != '') ? precio_venta : 0;
-			console.log(precio_venta);
+			
 			var subtotal=cantidad*precio_venta;
 			var fila='<tr class="filas" id="fila'+cont+'">'+
 				'<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ',' + idarticulo +')">X</button></td>'+

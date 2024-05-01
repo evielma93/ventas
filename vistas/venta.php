@@ -174,7 +174,6 @@ if (!isset($_SESSION['nombre'])) {
                 <th>Código</th>
                 <th>Stock</th>
                 <th>Precio Venta</th>
-                <th>Imagen</th>
               </thead>
               <tbody>
 
@@ -186,7 +185,6 @@ if (!isset($_SESSION['nombre'])) {
                 <th>Código</th>
                 <th>Stock</th>
                 <th>Precio Venta</th>
-                <th>Imagen</th>
               </tfoot>
             </table>
           </div>

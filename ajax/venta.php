@@ -132,8 +132,7 @@ switch ($_GET["op"]) {
 				"2"=>$reg->categoria,
 				"3"=>$reg->codigo,
 				"4"=>($reg->stock > 0) ? '<span>'.$reg->stock.'</span>':'<span class="text-danger">'.$reg->stock.'</span>',
-				"5"=>($reg->precio_venta != '') ? $reg->precio_venta : 0 ,
-				"6"=>"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px'>" 
+				"5"=>($reg->precio_venta != '') ? $reg->precio_venta : 0 
 				);
 			}
 			$results=array(
