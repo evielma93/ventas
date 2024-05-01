@@ -220,6 +220,7 @@ function agregarDetalle(idarticulo,articulo,stock,precio_venta){
 		var descuento=0; 
 		if (idarticulo != "") {
 			$(`#btnadd${idarticulo}`).attr('disabled', true);
+			precio_venta = (precio_venta != '') ? precio_venta : 0;
 			var subtotal=cantidad*precio_venta;
 			var fila='<tr class="filas" id="fila'+cont+'">'+
 				'<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ',' + idarticulo +')">X</button></td>'+
