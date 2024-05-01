@@ -237,8 +237,8 @@ function agregarDetalle(idarticulo, stock, articulo) {
 			'<td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td>' +
 			'<td><input type="hidden" name="stock[]" value="' + stock + '">' + stock + '</td>' +
 			'<td><input type="number" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
-			'<td><input type="number" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '"></td>' +
-			'<td><input type="number" name="precio_venta[]" value="' + precio_venta + '"></td>' +
+			'<td><input type="text" name="precio_compra[]" id="precio_compra[]" value="' + precio_compra + '"></td>' +
+			'<td><input type="text" name="precio_venta[]" value="' + precio_venta + '"></td>' +
 			'<td><span id="subtotal' + cont + '" name="subtotal">' + subtotal + '</span></td>' +
 			'<td><button type="button" onclick="modificarSubtotales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>' +
 			'</tr>';
