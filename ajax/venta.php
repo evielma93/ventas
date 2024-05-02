@@ -126,14 +126,13 @@ switch ($_GET["op"]) {
 			$rspta=$articulo->listarActivosVenta();
 			$data=Array();
 			while ($reg=$rspta->fetch_object()) {
-				$precio_venta = ($reg->precio_venta != null) ? $reg->precio_venta : 0;
 				$data[]=array(
-				"0"=>($reg->stock>0)? '<button id="btnadd'.$reg->idarticulo.'" class="btn btn-success" onclick="agregarDetalle('.$reg->idarticulo.',\''.$reg->nombre. '\',' . $reg->stock . ','.$precio_venta.')"><span class="fa fa-plus"></span></button>': '<button class="btn btn-success" disabled onclick="agregarDetalle(' . $reg->idarticulo . ',\'' . $reg->nombre . '\',' . $precio_venta . ')"><span class="fa fa-plus"></span></button>',
+				"0"=>($reg->stock>0)? '<button id="btnadd'.$reg->idarticulo.'" class="btn btn-success" onclick="agregarDetalle('.$reg->idarticulo.',\''.$reg->nombre. '\',' . $reg->stock . ','.$reg->precio_venta.')"><span class="fa fa-plus"></span></button>': '<button class="btn btn-success" disabled onclick="agregarDetalle(' . $reg->idarticulo . ',\'' . $reg->nombre . '\',' . $reg->precio_venta . ')"><span class="fa fa-plus"></span></button>',
 				"1"=>$reg->nombre,
 				"2"=>$reg->categoria,
 				"3"=>$reg->codigo,
 				"4"=>($reg->stock > 0) ? '<span>'.$reg->stock.'</span>':'<span class="text-danger">'.$reg->stock.'</span>',
-				"5"=>$precio_venta 
+				"5"=>$reg->precio_venta,
 				);
 			}
 			$results=array(

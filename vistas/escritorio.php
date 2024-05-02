@@ -145,7 +145,7 @@ if (!isset($_SESSION['nombre'])) {
                         <tbody>
                           <?php while ($reg = $top10->fetch_object()) : ?>
                             <tr>
-                              <td><img src='../files/articulos/<?php echo $reg->imagen ?>' height='50px' width='50px'><?php echo $reg->nombre ?></td>
+                              <td><?php echo $reg->nombre ?></td>
                               <td><?php echo $reg->descripcion ?></td>
                               <td><?php echo $reg->stock ?></td>
                               <td><?php echo $reg->cantidad ?> </td>
@@ -176,7 +176,7 @@ if (!isset($_SESSION['nombre'])) {
                         <tbody>
                           <?php while ($reg = $stockmin->fetch_object()) : ?>
                             <tr>
-                              <td><img src='../files/articulos/<?php echo $reg->imagen ?>' height='50px' width='50px'><?php echo $reg->nombre ?></td>
+                              <td><?php echo $reg->nombre ?></td>
                               <td><?php echo $reg->codigo ?> </td>
                               <td><?php echo $reg->descripcion ?></td>
                               <td><?php echo $reg->stock ?></td>
