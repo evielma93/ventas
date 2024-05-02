@@ -96,7 +96,7 @@ function listar() {
 			}
 		},
 		"bDestroy": true,
-		"iDisplayLength": 5,//paginacion
+		"iDisplayLength": 15,//paginacion
 		"order": [[0, "desc"]]//ordenar (columna, orden)
 	}).DataTable();
 }
@@ -119,7 +119,7 @@ function listarArticulos() {
 			}
 		},
 		"bDestroy": true,
-		"iDisplayLength": 5,//paginacion
+		"iDisplayLength": 15,//paginacion
 		"order": [[0, "desc"]]//ordenar (columna, orden)
 	}).DataTable();
 }
@@ -208,7 +208,7 @@ function eliminar(idingreso) {
 }
 
 //declaramos variables necesarias para trabajar con las compras y sus detalles
-var impuesto = 18;
+var impuesto = 15;
 var cont = 0;
 var detalles = 0;
 
