@@ -39,7 +39,7 @@ public function totalproveedores(){
 	return ejecutarConsulta($sql);
 }
 public function articulostockmin(){
-	$sql = "SELECT * FROM articulo WHERE stock < 2 and condicion=1 ORDER BY stock DESC";
+	$sql = "SELECT * FROM articulo WHERE stock < 2 and condicion=1 ORDER BY stock ASC";
 	return ejecutarConsulta($sql);
 }
 public function Articulos_mas_vendidos(){ 
