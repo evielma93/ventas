@@ -27,7 +27,8 @@ public function totalcomprahoy(){
 }
 
 public function totalventahoy(){
-	$sql="SELECT IFNULL(SUM(total_venta),0) as total_venta FROM venta WHERE DATE(fecha_hora)=curdate()";
+	//$sql="SELECT IFNULL(SUM(total_venta),0) as total_venta FROM venta WHERE DATE(fecha_hora)=curdate()";
+	$sql="SELECT IFNULL(SUM(total_venta),0) as total_venta FROM venta ";
 	return ejecutarConsulta($sql);
 }
 public function totalclientes(){
