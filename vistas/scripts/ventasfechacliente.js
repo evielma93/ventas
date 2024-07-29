@@ -17,7 +17,7 @@ function listar() {
 
 	var fecha_inicio = $("#fecha_inicio").val();
 	var fecha_fin = $("#fecha_fin").val();
-
+	getTotal(fecha_inicio,fecha_fin)
 	tabla = $('#tbllistado').dataTable({
 		"aProcessing": true,//activamos el procedimiento del datatable
 		"aServerSide": true,//paginacion y filrado realizados por el server
@@ -42,6 +42,22 @@ function listar() {
 		"iDisplayLength": 20,//paginacion
 		"order": [[0, "desc"]]//ordenar (columna, orden)
 	}).DataTable();
+
+	
+}
+
+function getTotal(fecha_inicio,fecha_fin) {
+	$.ajax({
+		url: '../ajax/consultas.php?op=ventasfechacliente2',
+		type: 'GET',
+		data: { fecha_inicio: fecha_inicio, fecha_fin: fecha_fin },
+		success: function (resp) {
+			console.log(resp);
+			let inputValor = document.querySelector('#valorTotal');
+			inputValor.value = `${resp}`;
+		}
+	});
+
 }
 
 
