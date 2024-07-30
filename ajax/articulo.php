@@ -58,7 +58,7 @@ switch ($_GET["op"]) {
             "2"=>$reg->categoria,
             "3"=>$reg->codigo,
             "4"=>$reg->stock,
-            "5"=>$reg->descripcion,
+            "5"=>$reg->precio_venta,
             "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':'<span class="label bg-red">Desactivado</span>'
               );
 		}

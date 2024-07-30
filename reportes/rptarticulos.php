@@ -32,11 +32,12 @@ $pdf->Ln(10);
 //creamos las celdas para los titulos de cada columna y le asignamos un fondo gris y el tipo de letra
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Arial','B',10);
-$pdf->Cell(58,6,'Nombre',1,0,'C',1);
-$pdf->Cell(50,6,utf8_decode('Categoría'),1,0,'C',1);
-$pdf->Cell(30,6,utf8_decode('Código'),1,0,'C',1);
+$pdf->Cell(60,6,'Nombre',1,0,'C',1);
+$pdf->Cell(35,6,utf8_decode('Categoría'),1,0,'C',1);
+$pdf->Cell(35,6,utf8_decode('Código'),1,0,'C',1);
 $pdf->Cell(12,6,'Stock',1,0,'C',1);
-$pdf->Cell(35,6,utf8_decode('Descripcion'),1,0,'C',1);
+$pdf->Cell(15,6,utf8_decode('Valor'),1,0,'C',1);
+$pdf->Cell(20,6,utf8_decode('Valor Total'),1,0,'C',1);
 $pdf->Ln(10);
 
 //creamos las filas de los registros según la consulta mysql
@@ -46,18 +47,25 @@ $articulo = new Articulo();
 $rspta = $articulo->listar();
 
 //implementamos las celdas de la tabla con los registros a mostrar
-$pdf->SetWidths(array(58,50,30,12,35));
-
+$pdf->SetWidths(array(60,35,35,12,15,20));
+$valorTotal = 0;
 while ($reg= $rspta->fetch_object()) {
 	$nombre=$reg->nombre;
 	$categoria= $reg->categoria;
 	$codigo=$reg->codigo;
 	$stock=$reg->stock;
-	$descripcion=$reg->descripcion;
+	$precio_venta=$reg->precio_venta;
+	$valorTotal += $precio_venta;
+	$valorStockU = $stock*$precio_venta;
 
 	$pdf->SetFont('Arial','',10);
-	$pdf->Row(array(utf8_decode($nombre),utf8_decode($categoria),$codigo,$stock,utf8_decode($descripcion)));
+	//$pdf->Row(array(utf8_decode($nombre),utf8_decode($categoria),$codigo,$stock,utf8_decode($descripcion)));
+	$pdf->Row(array(utf8_decode($nombre),utf8_decode($categoria),$codigo,$stock,$precio_venta,$valorStockU ));
 }
+$pdf->Ln(20);
+$pdf->Cell(50,6,utf8_decode('Valor Total de Inventario'),1,0,'C',1);
+$pdf->Cell(20,6,number_format($valorTotal,2),1,0,'C',1);
+$pdf->Ln(10);
 
 //mostramos el documento pdf
 $pdf->Output();
