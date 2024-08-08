@@ -70,6 +70,11 @@ public function ventadetalles($idventa){
          return ejecutarConsulta($sql);
 }
 
+public function numeroVentas(){
+	$sql="SELECT COUNT(*) AS total FROM venta";
+	return ejecutarConsultaSimpleFila($sql);
+}
+
 
 }
 

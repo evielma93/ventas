@@ -73,7 +73,6 @@ if (!isset($_SESSION['nombre'])) {
                   <div class="form-group col-lg-6 col-md-6 col-xs-12">
                     <label for="">Tipo Comprobante(*): </label>
                     <select name="tipo_comprobante" id="tipo_comprobante" class="form-control selectpicker" required>
-                      <option value="Boleta">Boleta</option>
                       <option value="Factura">Factura</option>
                       <option value="Ticket">Ticket</option>
                     </select>

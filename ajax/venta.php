@@ -52,7 +52,7 @@ switch ($_GET["op"]) {
        </thead>';
 		echo '<tbody>';
 		while ($reg = $rspta->fetch_object()) {
-			$precio_venta = ($reg->precio_venta == null ) ? 0 : $reg->precio_venta ;
+			$precio_venta = ($reg->precio_venta == null) ? 0 : $reg->precio_venta;
 			echo '<tr class="filas">
 			<td></td>
 			<td>' . $reg->nombre . '</td>
@@ -129,7 +129,7 @@ switch ($_GET["op"]) {
 		$rspta = $articulo->listarActivosVenta();
 		$data = array();
 		while ($reg = $rspta->fetch_object()) {
-			$precio_venta = ($reg->precio_venta == null ) ? 0 : $reg->precio_venta ;
+			$precio_venta = ($reg->precio_venta == null) ? 0 : $reg->precio_venta;
 			$data[] = array(
 				"0" => ($reg->stock > 0) ? '<button id="btnadd' . $reg->idarticulo . '" class="btn btn-success" onclick="agregarDetalle(' . $reg->idarticulo . ',\'' . $reg->nombre . '\',' . $reg->stock . ',' . $precio_venta . ')"><span class="fa fa-plus"></span></button>' : '<button class="btn btn-success" disabled onclick="agregarDetalle(' . $reg->idarticulo . ',\'' . $reg->nombre . '\',' . $reg->precio_venta . ')"><span class="fa fa-plus"></span></button>',
 				"1" => $reg->nombre,
@@ -146,5 +146,9 @@ switch ($_GET["op"]) {
 			"aaData" => $data
 		);
 		echo json_encode($results);
+		break;
+	case 'getNumber':
+		$rspta = $venta->numeroVentas();
+		echo json_encode($rspta);
 		break;
 }

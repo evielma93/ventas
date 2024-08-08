@@ -8,12 +8,13 @@ function init() {
 	$("#formulario").on("submit", function (e) {
 		guardaryeditar(e);
 	});
-
+	
 	//cargamos los items al select cliente
 	$.post("../ajax/venta.php?op=selectCliente", function (r) {
 		$("#idcliente").html(r);
 		$('#idcliente').selectpicker('refresh');
 	});
+	getNumber();
 }
 
 //funcion limpiar
@@ -64,6 +65,9 @@ function mostrarform(flag) {
 		$("#formularioregistros").hide();
 		$("#btnagregar").show();
 	}
+
+	getNumber();
+	$("#serie_comprobante").val("001");
 }
 
 //cancelar form
@@ -142,6 +146,19 @@ function guardaryeditar(e) {
 
 	limpiar();
 }
+
+function getNumber() {
+	console.log('Entrando a bumero');
+	$.ajax({
+		url: "../ajax/venta.php?op=getNumber",
+		type: 'GET',
+		success: function (resp) {
+			obj = JSON.parse(resp);
+			$("#num_comprobante").val(obj.total);
+		}
+	});
+}
+
 function detalle_list(id) {
 	$.post("../ajax/venta.php?op=listarDetalle&id=" + id, function (r) {
 		$("#detalles").html(r);

@@ -69,18 +69,17 @@ if (!isset($_SESSION['nombre'])) {
                   <div class="form-group col-lg-6 col-md-6 col-xs-12">
                     <label for="">Tipo Comprobante(*): </label>
                     <select name="tipo_comprobante" id="tipo_comprobante" class="form-control selectpicker" required>
-                      <option value="Boleta">Boleta</option>
                       <option value="Factura">Factura</option>
                       <option value="Ticket">Ticket</option>
                     </select>
                   </div>
                   <div class="form-group col-lg-3 col-md-2 col-xs-6">
                     <label for="">Serie: </label>
-                    <input class="form-control" type="text" name="serie_comprobante" id="serie_comprobante" maxlength="7" placeholder="Serie">
+                    <input class="form-control" type="text" name="serie_comprobante" id="serie_comprobante" maxlength="7" placeholder="Serie" value="001">
                   </div>
                   <div class="form-group col-lg-3 col-md-2 col-xs-6">
                     <label for="">Número: </label>
-                    <input class="form-control" type="text" name="num_comprobante" id="num_comprobante" maxlength="10" placeholder="Número" required>
+                    <input class="form-control" type="text" name="num_comprobante" id="num_comprobante" maxlength="10" placeholder="Número" required readonly>
                   </div>
                   <div class="form-group col-lg-3 col-md-2 col-xs-6">
                     <label for="">Impuesto: </label>
