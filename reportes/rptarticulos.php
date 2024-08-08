@@ -55,8 +55,8 @@ while ($reg= $rspta->fetch_object()) {
 	$codigo=$reg->codigo;
 	$stock=$reg->stock;
 	$precio_venta=$reg->precio_venta;
-	$valorTotal += $precio_venta;
 	$valorStockU = $stock*$precio_venta;
+	$valorTotal += $valorStockU;
 
 	$pdf->SetFont('Arial','',10);
 	//$pdf->Row(array(utf8_decode($nombre),utf8_decode($categoria),$codigo,$stock,utf8_decode($descripcion)));
