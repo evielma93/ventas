@@ -313,4 +313,3 @@ function eliminarDetalle(indice, idarticulo) {
 }
 
 init();
-console.log('Entrando');
